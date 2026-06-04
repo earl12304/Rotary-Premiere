@@ -1,0 +1,3093 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rotary Club of Lopez</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+:root{
+--rotary-blue:#005DAA;
+--rotary-gold:#F7A81B;
+--dark:#07111f;
+}
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+font-family:'Montserrat',sans-serif;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+#navbar{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+
+z-index:999;
+
+transition:.4s ease;
+
+padding:0 40px;
+}
+
+/* =========================
+   NAV WRAPPER
+========================= */
+
+.nav-wrapper{
+
+height:85px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+transition:.4s ease;
+}
+
+/* SCROLL EFFECT */
+
+.navbar-scrolled{
+
+background:rgba(255, 255, 255, 0.667);
+
+backdrop-filter:blur(18px);
+
+box-shadow:
+0 5px 20px rgba(0,0,0,.06);
+}
+
+.navbar-scrolled .nav-wrapper{
+
+border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+/* =========================
+   LOGO SIDE
+========================= */
+
+.logo-side{
+
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo{
+
+width:150px;
+height:150px;
+
+object-fit:contain;
+
+transition:.4s ease;
+}
+
+.logo:hover{
+transform:rotate(10deg);
+}
+
+/* BRAND */
+
+.brand-text h2{
+
+font-size:1.05rem;
+font-weight:700;
+
+color:white;
+
+transition:.3s ease;
+}
+
+.brand-text p{
+
+font-size:.82rem;
+
+color:rgba(255,255,255,.72);
+
+transition:.3s ease;
+}
+
+.navbar-scrolled .brand-text h2{
+color:#0f172a;
+}
+
+.navbar-scrolled .brand-text p{
+color:#475569;
+}
+
+/* =========================
+   DESKTOP MENU
+========================= */
+
+.desktop-menu{
+
+display:flex;
+align-items:center;
+gap:38px;
+}
+
+.desktop-menu a{
+
+position:relative;
+
+text-decoration:none;
+
+font-size:.95rem;
+font-weight:600;
+
+color:white;
+
+transition:.3s ease;
+
+padding-bottom:5px;
+}
+
+/* PREMIUM HOVER */
+
+.desktop-menu a:hover{
+
+color:var(--rotary-gold);
+
+transform:translateY(-2px);
+}
+
+/* UNDERLINE */
+
+.desktop-menu a::after{
+
+content:'';
+
+position:absolute;
+left:0;
+bottom:0;
+
+width:0%;
+height:2px;
+
+background:var(--rotary-gold);
+
+transition:.3s ease;
+}
+
+.desktop-menu a:hover::after,
+.desktop-menu a.active::after{
+
+width:100%;
+}
+
+.navbar-scrolled .desktop-menu a{
+color:#0f172a;
+}
+
+/* =========================
+   MOBILE BUTTON
+========================= */
+
+.menu-btn{
+
+display:none;
+
+background:none;
+border:none;
+
+cursor:pointer;
+
+flex-direction:column;
+gap:5px;
+}
+
+.menu-btn span{
+
+width:25px;
+height:2px;
+
+background:white;
+
+transition:.3s ease;
+}
+
+.navbar-scrolled .menu-btn span{
+background:#0f172a;
+}
+
+/* ANIMATION */
+
+.menu-btn.active span:nth-child(1){
+transform:translateY(7px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2){
+opacity:0;
+}
+
+.menu-btn.active span:nth-child(3){
+transform:translateY(-7px) rotate(-45deg);
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu{
+
+display:flex;
+flex-direction:column;
+
+background:white;
+
+padding:15px 0;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.08);
+
+animation:fadeMenu .3s ease;
+}
+
+.mobile-menu a{
+
+padding:16px 40px;
+
+text-decoration:none;
+
+font-weight:600;
+
+color:#0f172a;
+
+transition:.3s ease;
+}
+
+.mobile-menu a:hover{
+
+background:rgba(247,168,27,.08);
+
+padding-left:50px;
+
+color:var(--rotary-blue);
+}
+
+.hidden{
+display:none;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeMenu{
+
+from{
+opacity:0;
+transform:translateY(-10px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+.desktop-menu{
+display:none;
+}
+
+.menu-btn{
+display:flex;
+}
+
+#navbar{
+padding:0 22px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.nav-wrapper{
+height:78px;
+}
+
+.logo{
+width:48px;
+height:48px;
+}
+
+.brand-text h2{
+font-size:.95rem;
+}
+
+.brand-text p{
+font-size:.72rem;
+}
+
+.mobile-menu a{
+padding:15px 25px;
+}
+
+}
+
+/* SMALL MOBILE */
+
+@media(max-width:520px){
+
+#navbar{
+padding:0 16px;
+}
+
+.brand-text p{
+display:none;
+}
+
+.brand-text h2{
+font-size:.88rem;
+}
+
+.logo{
+width:44px;
+height:44px;
+}
+
+.nav-wrapper{
+height:72px;
+}
+
+}
+
+/* EXTRA SMALL */
+
+@media(max-width:380px){
+
+.brand-text h2{
+font-size:.8rem;
+max-width:150px;
+}
+
+.logo{
+width:40px;
+height:40px;
+}
+
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero-section{
+
+position:relative;
+
+width:100%;
+
+/* BETTER HEIGHT SYSTEM */
+height:100svh;
+
+min-height:680px;
+max-height:920px;
+
+overflow:hidden;
+
+background:#07111f;
+}
+
+/* =========================================
+   HERO SLIDES
+========================================= */
+
+.hero-slide{
+
+position:absolute;
+inset:0;
+
+opacity:0;
+
+transition:opacity 1.4s ease;
+}
+
+.hero-slide.active{
+opacity:1;
+z-index:1;
+}
+
+.hero-slide img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+animation:heroZoom 14s linear infinite;
+}
+
+@keyframes heroZoom{
+
+0%{
+transform:scale(1);
+}
+
+100%{
+transform:scale(1.08);
+}
+
+}
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.hero-overlay{
+
+position:absolute;
+inset:0;
+
+z-index:2;
+
+background:
+linear-gradient(
+90deg,
+rgba(5,10,20,.90) 15%,
+rgba(5,10,20,.70) 45%,
+rgba(5,10,20,.45) 100%
+);
+}
+
+/* LIGHT EFFECT */
+
+.hero-light{
+
+position:absolute;
+
+top:-120px;
+right:-100px;
+
+width:420px;
+height:420px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(247,168,27,.20),
+transparent 70%
+);
+
+z-index:2;
+}
+
+/* =========================================
+   HERO CONTAINER
+========================================= */
+
+.hero-container{
+
+position:relative;
+z-index:5;
+
+height:100%;
+
+max-width:1280px;
+
+margin:auto;
+
+/* SAFE SPACING */
+padding:
+110px
+40px
+70px;
+
+display:flex;
+align-items:center;
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.hero-content{
+
+width:100%;
+max-width:720px;
+
+animation:heroFade 1s ease;
+}
+
+@keyframes heroFade{
+
+from{
+opacity:0;
+transform:translateY(35px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* =========================================
+   BADGE
+========================================= */
+
+.hero-badge{
+
+display:inline-flex;
+align-items:center;
+gap:10px;
+
+padding:10px 20px;
+
+border-radius:999px;
+
+background:
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:white;
+
+font-size:.78rem;
+font-weight:600;
+letter-spacing:1px;
+
+margin-bottom:24px;
+}
+
+.hero-badge span{
+
+width:8px;
+height:8px;
+
+border-radius:50%;
+
+background:#F7A81B;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.hero-content h1{
+
+font-size:
+clamp(3rem,7vw,6rem);
+
+line-height:1.05;
+
+font-weight:900;
+
+letter-spacing:-2px;
+
+color:white;
+
+margin-bottom:24px;
+}
+
+.hero-content h1 span{
+
+display:block;
+
+color:#F7A81B;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.hero-content p{
+
+font-size:
+clamp(1rem,2vw,1.18rem);
+
+line-height:1.8;
+
+color:rgba(255,255,255,.82);
+
+max-width:650px;
+
+margin-bottom:38px;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.hero-buttons{
+
+display:flex;
+flex-wrap:wrap;
+
+gap:16px;
+
+margin-bottom:45px;
+}
+
+.primary-btn,
+.secondary-btn{
+
+padding:16px 30px;
+
+border-radius:999px;
+
+font-size:.95rem;
+font-weight:700;
+
+text-decoration:none;
+
+transition:.35s ease;
+}
+
+/* PRIMARY */
+
+.primary-btn{
+
+background:#F7A81B;
+
+color:#07111f;
+
+box-shadow:
+0 10px 25px rgba(247,168,27,.28);
+}
+
+.primary-btn:hover{
+
+transform:translateY(-4px);
+
+background:#ffbe45;
+}
+
+/* SECONDARY */
+
+.secondary-btn{
+
+border:1px solid rgba(255,255,255,.18);
+
+color:white;
+
+background:
+rgba(255,255,255,.04);
+
+backdrop-filter:blur(8px);
+}
+
+.secondary-btn:hover{
+
+background:white;
+color:#07111f;
+
+transform:translateY(-4px);
+}
+
+/* =========================================
+   STATS
+========================================= */
+
+.hero-stats{
+
+display:flex;
+flex-wrap:wrap;
+
+gap:16px;
+}
+
+.stat-card{
+
+min-width:150px;
+
+padding:18px 22px;
+
+background:
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.3s ease;
+}
+
+.stat-card:hover{
+
+transform:translateY(-5px);
+
+background:
+rgba(255,255,255,.12);
+}
+
+.stat-card h3{
+
+font-size:1.7rem;
+font-weight:800;
+
+color:#F7A81B;
+
+margin-bottom:5px;
+}
+
+.stat-card p{
+
+margin:0;
+
+font-size:.85rem;
+
+line-height:1.5;
+
+color:rgba(255,255,255,.72);
+}
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+.scroll-indicator{
+
+position:absolute;
+
+left:50%;
+bottom:22px;
+
+transform:translateX(-50%);
+
+z-index:5;
+}
+
+.scroll-indicator span{
+
+display:block;
+
+width:2px;
+height:52px;
+
+background:
+linear-gradient(
+to bottom,
+rgba(255,255,255,.15),
+white
+);
+
+animation:scrollMove 2s infinite;
+}
+
+@keyframes scrollMove{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(15px);
+opacity:0;
+}
+
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media(max-width:992px){
+
+.hero-section{
+
+min-height:760px;
+}
+
+.hero-container{
+
+padding:
+120px
+32px
+70px;
+}
+
+.hero-content{
+
+max-width:650px;
+}
+
+.hero-content h1{
+
+font-size:4.5rem;
+}
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px){
+
+.hero-section{
+
+height:auto;
+
+min-height:100svh;
+}
+
+.hero-container{
+
+padding:
+130px
+24px
+90px;
+
+align-items:flex-start;
+}
+
+.hero-content{
+
+max-width:100%;
+}
+
+.hero-content h1{
+
+font-size:3.2rem;
+
+line-height:1.1;
+}
+
+.hero-content p{
+
+font-size:1rem;
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+align-items:stretch;
+}
+
+.primary-btn,
+.secondary-btn{
+
+width:100%;
+text-align:center;
+}
+
+/* STACK STATS */
+.hero-stats{
+
+display:grid;
+
+grid-template-columns:1fr;
+
+width:100%;
+}
+
+.stat-card{
+width:100%;
+}
+
+.hero-light{
+
+width:300px;
+height:300px;
+}
+
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media(max-width:520px){
+
+.hero-container{
+
+padding:
+115px
+18px
+80px;
+}
+
+.hero-content h1{
+
+font-size:2.6rem;
+}
+
+.hero-content p{
+
+font-size:.95rem;
+
+line-height:1.7;
+}
+
+.hero-badge{
+
+font-size:.72rem;
+
+padding:9px 16px;
+}
+
+.primary-btn,
+.secondary-btn{
+
+padding:15px 24px;
+}
+
+.stat-card{
+
+padding:16px 18px;
+}
+
+}
+
+/* =========================================
+   EXTRA SMALL
+========================================= */
+
+@media(max-width:380px){
+
+.hero-content h1{
+
+font-size:2.2rem;
+}
+
+.hero-content p{
+
+font-size:.9rem;
+}
+
+.hero-buttons{
+
+gap:12px;
+}
+
+}
+
+/* =========================================
+EXPLORE ROTARY PREMIUM
+========================================= */
+
+#explore{
+    position:relative;
+    overflow:hidden;
+}
+
+#explore::before{
+    content:'';
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,#fbbf2420,transparent 70%);
+    top:-250px;
+    right:-250px;
+}
+
+#explore::after{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,#2563eb15,transparent 70%);
+    bottom:-250px;
+    left:-250px;
+}
+
+/* Tabs */
+
+.tab-btn{
+    position:relative;
+    padding:14px 28px;
+    border-radius:999px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    color:#475569;
+    font-weight:600;
+    transition:.35s;
+    overflow:hidden;
+}
+
+.tab-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.active-tab{
+    color:white;
+    background:linear-gradient(
+        135deg,
+        #005daa,
+        #1e40af
+    );
+    border-color:transparent;
+    box-shadow:
+    0 15px 35px rgba(30,64,175,.35);
+}
+
+/* Content */
+
+.tab-content{
+    display:none;
+    animation:fadeUp .6s ease;
+}
+
+.active-content{
+    display:block;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Project Cards */
+
+.card{
+    background:white;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.08);
+    transition:.4s;
+    border:1px solid rgba(255,255,255,.6);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.12);
+}
+
+.card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.card h3{
+    font-size:1.35rem;
+    font-weight:700;
+    margin-bottom:10px;
+    color:#0f172a;
+}
+
+.card p{
+    color:#64748b;
+}
+
+/* Members */
+
+.member-card{
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    text-align:center;
+    transition:.4s;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.07);
+}
+
+.member-card:hover{
+    transform:translateY(-10px);
+}
+
+.member-card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    margin:auto;
+    border:5px solid #facc15;
+    margin-bottom:18px;
+}
+
+.member-card h3{
+    font-size:1.15rem;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.member-card p{
+    color:#2563eb;
+    font-weight:600;
+}
+
+/* Timeline */
+
+.timeline-card{
+    background:white;
+    border-left:6px solid #fbbf24;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.timeline-card:hover{
+    transform:translateX(10px);
+}
+
+.timeline-card h3{
+    font-size:1.3rem;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.timeline-card p{
+    color:#64748b;
+    margin-top:8px;
+}
+
+/* Meetings */
+
+.meeting-card{
+    background:
+    linear-gradient(
+    135deg,
+    #ffffff,
+    #f8fafc
+    );
+
+    padding:35px;
+    border-radius:24px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    transition:.4s;
+}
+
+.meeting-card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+    0 25px 50px rgba(0,0,0,.12);
+}
+
+.meeting-card h3{
+    font-size:1.25rem;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.meeting-card p{
+    color:#64748b;
+}
+
+/* Stats */
+
+.rotary-stats{
+    margin-top:80px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.stat-box{
+    text-align:center;
+    padding:30px;
+    border-radius:20px;
+    background:white;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+.stat-number{
+    font-size:2.5rem;
+    font-weight:800;
+    color:#005daa;
+}
+
+.stat-label{
+    color:#64748b;
+}
+
+@media(max-width:768px){
+
+.rotary-stats{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/*projects*/
+/* ===================================
+PROJECT SHOWCASE
+=================================== */
+
+.projects-showcase{
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+}
+
+/* Featured */
+
+.featured-project{
+    position:relative;
+    height:650px;
+    border-radius:32px;
+    overflow:hidden;
+    cursor:pointer;
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.15);
+}
+
+.featured-project img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.8s;
+}
+
+.featured-project:hover img{
+    transform:scale(1.08);
+}
+
+.featured-overlay{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    padding:60px;
+
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,.9),
+        rgba(0,0,0,.15)
+    );
+}
+
+.project-badge{
+    display:inline-flex;
+    width:max-content;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:#fbbf24;
+
+    color:#111827;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+}
+
+.featured-overlay h2{
+    font-size:3rem;
+    font-weight:800;
+    color:white;
+}
+
+.featured-overlay p{
+    max-width:700px;
+    margin-top:15px;
+
+    color:#e2e8f0;
+    line-height:1.8;
+}
+
+/* Grid */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:30px;
+}
+
+.project-card{
+    background:white;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.08);
+
+    transition:.4s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+}
+
+.project-card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+
+    transition:.6s;
+}
+
+.project-card:hover img{
+    transform:scale(1.08);
+}
+
+.project-info{
+    padding:28px;
+}
+
+.project-info h3{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.project-info p{
+    margin-top:12px;
+    color:#64748b;
+    line-height:1.7;
+}
+
+/* Button */
+
+.view-story-btn{
+
+    margin-top:20px;
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #005daa,
+        #003c7a
+    );
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.view-story-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .featured-project{
+        height:500px;
+    }
+
+    .featured-overlay{
+        padding:30px;
+    }
+
+    .featured-overlay h2{
+        font-size:2rem;
+    }
+
+    .projects-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/*project floating Modal*/
+
+.project-modal{
+
+    position:fixed;
+    inset:0;
+
+    background:
+    rgba(0,0,0,.85);
+
+    backdrop-filter:blur(10px);
+
+    z-index:9999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.4s;
+}
+
+.project-modal.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal-container{
+
+    width:90%;
+    max-width:1000px;
+
+    height:auto;
+    max-height:85vh;
+
+    overflow-y:auto;
+
+    background:white;
+
+    border-radius:28px;
+
+    position:relative;
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.25);
+
+    transform:translateY(30px) scale(.95);
+
+    transition:.4s ease;
+}
+
+.project-modal.active .modal-container{
+    transform:translateY(0) scale(1);
+}
+
+/* Close */
+
+.modal-close{
+
+    position:absolute;
+    top:15px;
+    right:15px;
+
+    width:45px;
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(10px);
+
+    font-size:1.8rem;
+
+    cursor:pointer;
+
+    z-index:100;
+
+    transition:.3s;
+}
+
+.modal-close:hover{
+    transform:rotate(90deg);
+}
+
+/* Hero */
+
+.modal-hero{
+    height:320px;
+}
+
+.modal-hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Content */
+
+.modal-content{
+    padding:35px;
+}
+
+.modal-content h2{
+    font-size:2.2rem;
+    font-weight:800;
+    color:#0f172a;
+}
+
+.modal-content p{
+
+    margin-top:20px;
+
+    color:#64748b;
+
+    line-height:1.9;
+
+    font-size:1.05rem;
+}
+
+/* Gallery */
+
+.gallery-section{
+    margin-top:50px;
+}
+
+.gallery-section h3{
+    font-size:2rem;
+    margin-bottom:25px;
+}
+
+.gallery-wrapper{
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#galleryMainImage{
+
+    width:100%;
+    max-height:400px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+}
+
+/* Arrows */
+
+.gallery-nav{
+
+    position:absolute;
+
+    width:60px;
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    cursor:pointer;
+
+    font-size:1.5rem;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
+}
+
+#prevSlide{
+    left:20px;
+}
+
+#nextSlide{
+    right:20px;
+}
+
+/* Thumbs */
+
+.gallery-thumbs{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:20px;
+
+    overflow-x:auto;
+}
+
+.gallery-thumbs img{
+
+    width:120px;
+    height:80px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    border:3px solid transparent;
+}
+
+.gallery-thumbs img:hover{
+    transform:scale(1.05);
+}
+
+.gallery-thumbs img.active-thumb{
+    border-color:#005daa;
+}
+
+@media(max-width:768px){
+
+.modal-content{
+    padding:25px;
+}
+
+.modal-content h2{
+    font-size:2rem;
+}
+
+.modal-hero{
+    height:300px;
+}
+
+.gallery-nav{
+    width:45px;
+    height:45px;
+}
+
+}
+
+.footer-icon{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:16px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    font-size:20px;
+}
+
+.social-btn{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:18px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.35s ease;
+    font-size:20px;
+}
+
+.social-btn:hover{
+    background:#005DAA;
+    transform:translateY(-6px);
+    box-shadow:0 15px 30px rgba(0,93,170,.3);
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- CLEAN PREMIUM NAVBAR -->
+
+<nav id="navbar">
+
+<div class="nav-wrapper">
+
+<!-- LEFT -->
+<div class="logo-side">
+
+<img
+src="RotaryMBS-Simple_RGB.png"
+alt="Rotary Logo"
+class="logo">
+
+<div class="brand-text">
+
+<h2>
+Club of Lopez Premeire
+</h2>
+
+<p>
+District 3820
+</p>
+
+</div>
+
+</div>
+
+<!-- DESKTOP MENU -->
+<div class="desktop-menu">
+
+<a href="index.html" class="active">
+Home
+</a>
+
+<a href="charter.html">
+Charter Members
+</a>
+
+<a href="#">
+Rotary Year
+</a>
+
+<a href="#">
+Others
+</a>
+
+<a href="#">
+About Us
+</a>
+
+</div>
+
+<!-- MOBILE BUTTON -->
+<button id="menuBtn" class="menu-btn">
+
+<span></span>
+<span></span>
+<span></span>
+
+</button>
+
+</div>
+
+<!-- MOBILE MENU -->
+
+<div id="mobileMenu" class="mobile-menu hidden">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="charter.html">
+Charter Members
+</a>
+
+<a href="#">
+Rotary Year
+</a>
+
+<a href="#">
+Others
+</a>
+
+<a href="#">
+About Us
+</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero-section">
+
+<!-- SLIDES -->
+<div class="hero-slide active">
+
+<img
+src="slides/img4.jpg">
+
+</div>
+
+<div class="hero-slide active">
+
+<img
+src="slides/img3.jpg">
+
+</div>
+
+<div class="hero-slide">
+
+<img
+src="slides/img2.jpg">
+
+</div>
+
+<div class="hero-slide">
+
+<img
+src="slides/img1.jpg">
+
+</div>
+
+<!-- OVERLAY -->
+<div class="hero-overlay"></div>
+
+<!-- GOLD LIGHT -->
+<div class="hero-light"></div>
+
+<!-- CONTENT -->
+<div class="hero-container">
+
+<div class="hero-content">
+
+<!-- BADGE -->
+<div class="hero-badge">
+
+<span></span>
+
+RY 2026 - 2027
+
+</div>
+
+<!-- TITLE -->
+<h1>
+
+Creating Hope
+<span>In The World</span>
+
+</h1>
+
+<!-- DESCRIPTION -->
+<p>
+
+Together we serve communities,
+empower future leaders,
+and create meaningful impact through
+service above self.
+
+</p>
+
+<!-- BUTTONS -->
+<div class="hero-buttons">
+
+<a href="#explore" class="primary-btn">
+Explore Projects
+</a>
+
+<a href="about.html" class="secondary-btn">
+About Rotary
+</a>
+
+</div>
+
+<!-- STATS -->
+<div class="hero-stats">
+
+<div class="stat-card">
+
+<h3>
+25+
+</h3>
+
+<p>
+Community Projects
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3>
+1000+
+</h3>
+
+<p>
+Lives Impacted
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3>
+15+
+</h3>
+
+<p>
+Years of Service
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SCROLL -->
+<div class="scroll-indicator">
+
+<span></span>
+
+</div>
+
+</section>
+
+<!-- PRESIDENT MESSAGE -->
+
+<section id="president" class="relative py-32 bg-white overflow-hidden">
+
+    <!-- Decorative Background -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-yellow-100 rounded-full blur-3xl opacity-40"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-40"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+            <!-- Image Side -->
+            <div class="relative reveal">
+
+                <div class="absolute -top-6 -left-6 w-full h-full border-4 border-yellow-400 rounded-3xl"></div>
+
+                <img
+                    src="francisco.jpg"
+                    alt="President"
+                    class="relative rounded-3xl shadow-2xl w-full object-cover h-[650px]"
+                >
+
+                <!-- Floating Badge -->
+
+                <div class="absolute -bottom-8 right-8 bg-white shadow-xl rounded-2xl px-6 py-4">
+
+                    <h4 class="font-bold text-lg text-slate-900">
+                        RC Premiere President
+                    </h4>
+
+                    <p class="text-slate-500">
+                        Rotary Year 2026–2027
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Content Side -->
+
+            <div class="reveal">
+
+                <span class="text-yellow-500 font-semibold tracking-widest uppercase">
+                    Leadership Message
+                </span>
+
+                <h2 class="mt-4 text-5xl font-extrabold text-slate-900 leading-tight">
+
+                    Message from the President
+
+                </h2>
+
+                <div class="w-24 h-1 bg-yellow-500 mt-6 mb-8 rounded-full"></div>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+
+                    Welcome to the Rotary Club of Lopez.
+
+                    It is my honor to serve alongside dedicated individuals
+                    who share a passion for creating meaningful and lasting
+                    change in our communities.
+
+                </p>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+
+                    Guided by Rotary's principle of
+                    <strong>Service Above Self</strong>,
+                    we continue to implement projects that promote education,
+                    health, environmental sustainability, and community
+                    empowerment.
+
+                </p>
+
+                <p class="text-lg text-slate-600 leading-relaxed">
+
+                    Together, let us inspire hope, foster fellowship,
+                    and make a positive impact in the lives of others.
+                    Thank you for being part of our journey.
+
+                </p>
+
+                <!-- Signature -->
+
+                <div class="mt-10">
+
+                    <h4 class="font-bold text-2xl text-slate-900">
+                        Maria Luisa Francisco
+                    </h4>
+
+                    <p class="text-blue-700 font-medium">
+                        RC Premiere President, Rotary Club of Lopez
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECRETARY MESSAGE -->
+
+<section id="secretary" class="relative py-32 bg-slate-50 overflow-hidden">
+
+    <!-- Decorative Background -->
+
+    <div class="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-40"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-100 rounded-full blur-3xl opacity-40"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+            <!-- CONTENT SIDE -->
+
+            <div class="reveal order-2 lg:order-1">
+
+                <span class="text-blue-700 font-semibold tracking-widest uppercase">
+                    Leadership Message
+                </span>
+
+                <h2 class="mt-4 text-5xl font-extrabold text-slate-900 leading-tight">
+
+                    Message from the Director
+                </h2>
+
+                <div class="w-24 h-1 bg-blue-700 mt-6 mb-8 rounded-full"></div>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+
+                    As District Governor of the Rotary Club of Lopez,
+                    I am honored to support the programs,
+                    activities, and initiatives that strengthen
+                    our commitment to community service.
+
+                </p>
+
+                <p class="text-lg text-slate-600 leading-relaxed mb-6">
+
+                    Through collaboration, transparency,
+                    and effective communication,
+                    we ensure that every project reflects
+                    the Rotary spirit of integrity,
+                    fellowship, and service.
+
+                </p>
+
+                <p class="text-lg text-slate-600 leading-relaxed">
+
+                    Together, we continue to build stronger
+                    relationships, foster meaningful partnerships,
+                    and create opportunities that positively
+                    impact the lives of those we serve.
+
+                </p>
+
+                <!-- Signature -->
+
+                <div class="mt-10">
+
+                    <h4 class="font-bold text-2xl text-slate-900">
+                        Eric Santos
+                    </h4>
+
+                    <p class="text-blue-700 font-medium">
+                        District Governor, Rotary Club of Lopez
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- IMAGE SIDE -->
+
+            <div class="relative reveal order-1 lg:order-2">
+
+                <div class="absolute -top-6 -right-6 w-full h-full border-4 border-blue-700 rounded-3xl"></div>
+
+                <img
+                    src="santos.jpg"
+                    alt="Secretary"
+                    class="relative rounded-3xl shadow-2xl w-full object-cover h-[650px]"
+                >
+
+                <!-- Floating Card -->
+
+                <div class="absolute -bottom-8 left-8 bg-white shadow-xl rounded-2xl px-6 py-4">
+
+                    <h4 class="font-bold text-lg text-slate-900">
+                        District Governor
+                    </h4>
+
+                    <p class="text-slate-500">
+                        Rotary Year 2026–2027
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPLORE ROTARY -->
+
+<section id="explore" class="py-32 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+
+        <div class="text-center mb-16 reveal">
+
+            <span class="text-yellow-500 font-semibold tracking-widest uppercase">
+                Explore Rotary
+            </span>
+
+            <h2 class="text-5xl font-extrabold text-slate-900 mt-4">
+                Discover Our Community
+            </h2>
+
+            <p class="text-slate-500 mt-6 max-w-3xl mx-auto">
+                Learn about our projects, members, activities,
+                and meetings that continue to create positive
+                impact in our community.
+            </p>
+
+        </div>
+
+        <!-- TAB BUTTONS -->
+
+        <div class="flex flex-wrap justify-center gap-4 mb-14">
+
+            <button class="tab-btn active-tab" data-tab="projects">
+                Projects
+            </button>
+
+            <button class="tab-btn" data-tab="members">
+                Members
+            </button>
+
+            <button class="tab-btn" data-tab="activities">
+                Activities
+            </button>
+
+            <button class="tab-btn" data-tab="meetings">
+                Meetings
+            </button>
+
+        </div>
+
+        <!-- PROJECTS -->
+
+        <!-- FEATURED PROJECTS -->
+
+        <div id="projects" class="tab-content active-content">
+
+            <div class="projects-showcase">
+
+                <!-- Large Featured Project -->
+
+                <div class="featured-project">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80"
+                        alt="Community Outreach"
+                    >
+
+                    <div class="featured-overlay">
+
+                        <span class="project-badge">
+                            Featured Project
+                        </span>
+
+                        <h2>
+                            Community Outreach Program
+                        </h2>
+
+                        <p>
+                            Bringing hope and support to families through
+                            service, education, and community development.
+                        </p>
+
+                        <button
+                        class="view-story-btn"
+                        onclick="openProject('community')">
+
+                        View Story →
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Small Projects -->
+
+                <div class="projects-grid">
+
+                    <div class="project-card">
+
+                        <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1000&q=80">
+
+                        <div class="project-info">
+
+                            <h3>Medical Mission</h3>
+
+                            <p>
+                                Healthcare services for underserved communities.
+                            </p>
+
+                            <button class="view-story-btn"
+                            onclick="openProject('medical')">
+                            View Story
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="project-card">
+
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=80">
+
+                        <div class="project-info">
+
+                            <h3>Education Program</h3>
+
+                            <p>
+                                Supporting students through scholarships.
+                            </p>
+
+                            <button class="view-story-btn"
+                            onclick="openProject('education')">
+                            View Story
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="project-card">
+
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=80">
+
+                        <div class="project-info">
+
+                            <h3>Tree Planting</h3>
+
+                            <p>
+                                Building a greener and healthier future.
+                            </p>
+
+                            <button class="view-story-btn"
+                            onclick="openProject('treeplanting')">
+                            View Story
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="project-card">
+
+                        <img src="https://images.unsplash.com/photo-1469571486292-b53601020f35?auto=format&fit=crop&w=1000&q=80">
+
+                        <div class="project-info">
+
+                            <h3>Feeding Program</h3>
+
+                            <p>
+                                Delivering nutritious meals to children.
+                            </p>
+
+                            <button class="view-story-btn"
+                            onclick="openProject('feeding')">
+                            View Story
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MEMBERS -->
+
+        <div id="members" class="tab-content">
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <div class="member-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg">
+                    <h3>Juan Dela Cruz</h3>
+                    <p>President</p>
+                </div>
+
+                <div class="member-card">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg">
+                    <h3>Maria Santos</h3>
+                    <p>Secretary</p>
+                </div>
+
+                <div class="member-card">
+                    <img src="https://randomuser.me/api/portraits/men/11.jpg">
+                    <h3>Jose Reyes</h3>
+                    <p>Treasurer</p>
+                </div>
+
+                <div class="member-card">
+                    <img src="https://randomuser.me/api/portraits/women/24.jpg">
+                    <h3>Ana Cruz</h3>
+                    <p>Director</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ACTIVITIES -->
+
+        <div id="activities" class="tab-content">
+
+            <div class="space-y-8">
+
+                <div class="timeline-card">
+                    <h3>Tree Planting Program</h3>
+                    <p>July 2025</p>
+                </div>
+
+                <div class="timeline-card">
+                    <h3>Feeding Program</h3>
+                    <p>August 2025</p>
+                </div>
+
+                <div class="timeline-card">
+                    <h3>Community Clean-Up Drive</h3>
+                    <p>September 2025</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MEETINGS -->
+
+        <div id="meetings" class="tab-content">
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="meeting-card">
+                    <h3>Monthly General Meeting</h3>
+                    <p>Every 1st Saturday</p>
+                </div>
+
+                <div class="meeting-card">
+                    <h3>Board Meeting</h3>
+                    <p>Every 3rd Saturday</p>
+                </div>
+
+                <div class="meeting-card">
+                    <h3>Special Session</h3>
+                    <p>As Scheduled</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECT SHOWCASE MODAL -->
+
+<div id="projectModal" class="project-modal">
+
+    <div class="modal-container">
+
+        <button class="modal-close">
+            &times;
+        </button>
+
+        <!-- Hero Image -->
+
+        <div class="modal-hero">
+
+            <img
+                id="heroImage"
+                src=""
+                alt=""
+            >
+
+        </div>
+
+        <!-- Content -->
+
+        <div class="modal-content">
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalDescription"></p>
+
+            <!-- Gallery -->
+
+            <div class="gallery-section">
+
+                <h3>Project Gallery</h3>
+
+                <div class="gallery-wrapper">
+
+                    <button id="prevSlide" class="gallery-nav">
+                        ❮
+                    </button>
+
+                    <img
+                        id="galleryMainImage"
+                        src=""
+                        alt=""
+                    >
+
+                    <button id="nextSlide" class="gallery-nav">
+                        ❯
+                    </button>
+
+                </div>
+
+                <div
+                    id="galleryThumbs"
+                    class="gallery-thumbs">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- PREMIUM FOOTER -->
+
+<footer class="relative bg-[#07111f] text-white overflow-hidden">
+
+    <!-- Background Effects -->
+
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-600/10 rounded-full blur-[180px]"></div>
+
+    <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-yellow-500/10 rounded-full blur-[180px]"></div>
+
+    <!-- Rotary Watermark -->
+
+    <div class="absolute right-[-100px] bottom-[-100px] opacity-[0.03]">
+
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/3/35/Rotary_International.svg"
+            class="w-[500px]"
+        >
+
+    </div>
+
+    <div class="relative z-10">
+
+        <!-- CTA -->
+
+        <div class="max-w-5xl mx-auto text-center px-6 py-28">
+
+            <span class="text-yellow-400 tracking-[4px] uppercase text-sm font-semibold">
+
+                Rotary Club of Lopez
+
+            </span>
+
+            <h2 class="text-5xl md:text-7xl font-extrabold mt-6 leading-tight">
+
+                Service
+                <span class="text-yellow-400">
+                    Above Self
+                </span>
+
+            </h2>
+
+            <p class="text-slate-400 text-lg mt-8 max-w-2xl mx-auto leading-8">
+
+                Together we build stronger communities,
+                inspire leadership, and create lasting
+                positive change through Rotary service.
+
+            </p>
+
+            <button
+                class="mt-10 bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-10 py-5 rounded-full transition duration-300 hover:scale-105">
+
+                Become A Member
+
+            </button>
+
+        </div>
+
+        <!-- Divider -->
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
+
+        </div>
+
+        <!-- Contact Section -->
+
+        <div class="max-w-7xl mx-auto px-6 py-16">
+
+            <div class="grid lg:grid-cols-3 gap-10">
+
+                <!-- Brand -->
+
+                <div>
+
+                    <h3 class="text-3xl font-bold mb-5">
+
+                        Rotary Club of
+                        <span class="text-yellow-400">
+                            Lopez
+                        </span>
+
+                    </h3>
+
+                    <p class="text-slate-400 leading-8">
+
+                        Creating hope through fellowship,
+                        leadership, and humanitarian service.
+
+                    </p>
+
+                </div>
+
+                <!-- Contact -->
+
+                <div>
+
+                    <h4 class="font-bold text-xl mb-6">
+
+                        Contact Information
+
+                    </h4>
+
+                    <div class="space-y-5">
+
+                        <div class="flex items-center gap-4">
+
+                            <div class="footer-icon">
+                                📍
+                            </div>
+
+                            <p class="text-slate-400">
+                                Lopez, Quezon, Philippines
+                            </p>
+
+                        </div>
+
+                        <div class="flex items-center gap-4">
+
+                            <div class="footer-icon">
+                                ✉️
+                            </div>
+
+                            <p class="text-slate-400">
+                                info@rotarylopez.org
+                            </p>
+
+                        </div>
+
+                        <div class="flex items-center gap-4">
+
+                            <div class="footer-icon">
+                                ☎️
+                            </div>
+
+                            <p class="text-slate-400">
+                                +63 912 345 6789
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Social -->
+
+                <div>
+
+                    <h4 class="font-bold text-xl mb-6">
+
+                        Follow Us
+
+                    </h4>
+
+                    <div class="flex gap-4">
+
+                        <a href="#" class="social-btn">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" class="social-btn">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="social-btn">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+
+                        <a href="#" class="social-btn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+
+                    </div>
+
+                    <p class="text-slate-400 mt-8 leading-7">
+
+                        Stay connected and follow our latest
+                        projects, community outreach programs,
+                        and Rotary activities.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Bottom -->
+
+        <div class="border-t border-slate-800">
+
+            <div class="max-w-7xl mx-auto px-6 py-8">
+
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+                    <p class="text-slate-500">
+
+                        © 2026 Rotary Club of Lopez.
+                        All Rights Reserved.
+
+                    </p>
+
+                    <p class="text-yellow-400 tracking-widest uppercase text-sm">
+
+                        Creating Hope In The World
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+
+/* MOBILE MENU */
+
+const menuBtn =
+document.getElementById('menuBtn');
+
+const mobileMenu =
+document.getElementById('mobileMenu');
+
+menuBtn.onclick = () => {
+
+mobileMenu.classList.toggle('hidden');
+
+menuBtn.classList.toggle('active');
+
+};
+
+/* NAVBAR SCROLL */
+
+const navbar =
+document.getElementById('navbar');
+
+window.addEventListener('scroll',()=>{
+
+if(window.scrollY > 50){
+
+navbar.classList.add('navbar-scrolled');
+
+}else{
+
+navbar.classList.remove('navbar-scrolled');
+
+}
+
+});
+
+/* HERO CAROUSEL */
+
+const slides =
+document.querySelectorAll('.hero-slide');
+
+let current = 0;
+
+setInterval(()=>{
+
+slides[current].classList.remove('active');
+
+current++;
+
+if(current >= slides.length){
+
+current = 0;
+
+}
+
+slides[current].classList.add('active');
+
+},5000);
+
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+
+    reveals.forEach(item => {
+
+        const top = item.getBoundingClientRect().top;
+
+        if(top < window.innerHeight - 100){
+            item.classList.add('active');
+        }
+
+    });
+
+});
+
+const tabButtons = document.querySelectorAll(".tab-btn");
+const tabContents = document.querySelectorAll(".tab-content");
+
+tabButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        tabButtons.forEach(btn =>
+            btn.classList.remove("active-tab")
+        );
+
+        tabContents.forEach(content =>
+            content.classList.remove("active-content")
+        );
+
+        button.classList.add("active-tab");
+
+        document
+            .getElementById(button.dataset.tab)
+            .classList.add("active-content");
+
+    });
+
+});
+
+/*project modal*/
+
+const projects = {
+
+    community:{
+        title:"Community Outreach Program",
+
+        description:
+        "Through service-driven initiatives, the Community Outreach Program supports local families through educational assistance, community development, and outreach activities. The project aims to create sustainable positive change and strengthen relationships within the community.",
+
+        hero:
+        "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80",
+
+        gallery:[
+            "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80"
+        ]
+    },
+
+    medical:{
+        title:"Medical Mission",
+
+        description:
+        "The Medical Mission project provides free medical consultations, medicines, health awareness programs, and healthcare support to underserved communities. Rotary members work together with healthcare professionals to improve community well-being.",
+
+        hero:
+        "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80",
+
+        gallery:[
+            "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1600&q=80"
+        ]
+    },
+
+    education:{
+        title:"Education Support Program",
+
+        description:
+        "The Education Support Program empowers students through scholarships, school supplies, educational resources, and mentorship opportunities. The initiative helps create better learning opportunities for future generations.",
+
+        hero:
+        "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80",
+
+        gallery:[
+            "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80"
+        ]
+    },
+
+    treeplanting:{
+        title:"Tree Planting Project",
+
+        description:
+        "The Tree Planting Project promotes environmental sustainability through reforestation activities, community cleanups, and environmental awareness campaigns. It encourages communities to take part in protecting natural resources.",
+
+        hero:
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80",
+
+        gallery:[
+            "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80"
+        ]
+    },
+
+    feeding:{
+        title:"Feeding Program",
+
+        description:
+        "The Feeding Program provides nutritious meals and support to children and families in need. Through regular outreach efforts, the project helps address food insecurity and promotes healthier communities.",
+
+        hero:
+        "https://images.unsplash.com/photo-1469571486292-b53601020f35?auto=format&fit=crop&w=1600&q=80",
+
+        gallery:[
+            "https://images.unsplash.com/photo-1469571486292-b53601020f35?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?auto=format&fit=crop&w=1600&q=80",
+            "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=1600&q=80"
+        ]
+    }
+
+};
+
+let currentGallery = [];
+let currentIndex = 0;
+
+const modal =
+document.getElementById("projectModal");
+
+const heroImage =
+document.getElementById("heroImage");
+
+const modalTitle =
+document.getElementById("modalTitle");
+
+const modalDescription =
+document.getElementById("modalDescription");
+
+const galleryMainImage =
+document.getElementById("galleryMainImage");
+
+const galleryThumbs =
+document.getElementById("galleryThumbs");
+
+/* OPEN PROJECT */
+
+function openProject(projectKey){
+
+const project =
+projects[projectKey];
+
+heroImage.src =
+project.hero;
+
+modalTitle.textContent =
+project.title;
+
+modalDescription.textContent =
+project.description;
+
+currentGallery =
+project.gallery;
+
+currentIndex = 0;
+
+updateGallery();
+
+modal.classList.add("active");
+
+document.body.style.overflow =
+"hidden";
+}
+
+/* UPDATE GALLERY */
+
+function updateGallery(){
+
+galleryMainImage.src =
+currentGallery[currentIndex];
+
+galleryThumbs.innerHTML = "";
+
+currentGallery.forEach((img,index)=>{
+
+const thumb =
+document.createElement("img");
+
+thumb.src = img;
+
+if(index === currentIndex){
+thumb.classList.add("active-thumb");
+}
+
+thumb.onclick = ()=>{
+
+currentIndex = index;
+
+updateGallery();
+
+};
+
+galleryThumbs.appendChild(thumb);
+
+});
+
+}
+
+/* NEXT */
+
+document
+.getElementById("nextSlide")
+.onclick = ()=>{
+
+currentIndex++;
+
+if(currentIndex >= currentGallery.length){
+currentIndex = 0;
+}
+
+updateGallery();
+
+};
+
+/* PREVIOUS */
+
+document
+.getElementById("prevSlide")
+.onclick = ()=>{
+
+currentIndex--;
+
+if(currentIndex < 0){
+currentIndex =
+currentGallery.length - 1;
+}
+
+updateGallery();
+
+};
+
+/* CLOSE */
+
+document
+.querySelector(".modal-close")
+.onclick = ()=>{
+
+modal.classList.remove("active");
+
+document.body.style.overflow =
+"auto";
+
+};
+
+modal.onclick = (e)=>{
+
+if(e.target === modal){
+
+modal.classList.remove("active");
+
+document.body.style.overflow =
+"auto";
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
